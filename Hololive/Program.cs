@@ -1,7 +1,17 @@
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Hololive.Data;
+using Hololive.Areas.Identity.Data;
 var builder = WebApplication.CreateBuilder(args);
+var connectionString = builder.Configuration.GetConnectionString("HololiveContextConnection") ?? throw new InvalidOperationException("Connection string 'HololiveContextConnection' not found.");
+
+builder.Services.AddDbContext<HololiveContext>(options => options.UseSqlServer(connectionString));
+
+builder.Services.AddDefaultIdentity<HololiveUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<HololiveContext>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddRazorPages();
 
 var app = builder.Build();
 
@@ -17,11 +27,13 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.MapRazorPages();
 
 app.Run();

@@ -1,0 +1,49 @@
+/* _content/Hololive/Views/Shared/_Layout.cshtml.rz.scp.css */
+/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand[b-dkym5tvsew] {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+a[b-dkym5tvsew] {
+  color: #0077cc;
+}
+
+.btn-primary[b-dkym5tvsew] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active[b-dkym5tvsew], .nav-pills .show > .nav-link[b-dkym5tvsew] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.border-top[b-dkym5tvsew] {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom[b-dkym5tvsew] {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow[b-dkym5tvsew] {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy[b-dkym5tvsew] {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+.footer[b-dkym5tvsew] {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px;
+}

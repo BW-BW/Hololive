@@ -1,0 +1,48 @@
+﻿@model Voucher
+@{
+    ViewData["Title"] = "AddNewVoucher";
+}
+
+<h1>AddNewFlower</h1>
+
+<center>
+    <h1>Add New Voucher Form:</h1>
+    <br />
+    <hr />
+    <br />
+    <form method="post" asp-action="AddVoucher" asp-controller="Admin" enctype="multipart/form-data">
+        <table border="1"
+            <tr>
+                <th><label asp-for="VoucherName"></label></th>
+                <td>
+                    <input asp-for="VoucherName" />
+                    <span asp-validation-for="VoucherName"></span>
+                </td>
+            </tr>
+            <tr>
+                <th><label asp-for="VoucherValue"></label></th>
+                <td>
+                    <input asp-for="VoucherValue" />
+                    <span asp-validation-for="VoucherValue"></span>
+                </td>
+            </tr>
+            <tr>
+                <th><label asp-for="VoucherPrice"></label></th>
+                <td>
+                    <input asp-for="VoucherPrice" />
+                    <span asp-validation-for="VoucherPrice"></span>
+                </td>
+            </tr>
+            <tr>
+                <th><label asp-for="VoucherLink"></label></th>
+                <td>
+                    <input type="file" name="imagefile" accept="image/*"/>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align:center">
+                    <button class="btn-outline-info">Add New Voucher</button>
+                </td>
+            </tr>
+    </form>
+</center>

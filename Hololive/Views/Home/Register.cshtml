@@ -1,0 +1,49 @@
+﻿@model Customer
+@{
+    ViewData["Title"] = "Register";
+}
+
+<h1>Register</h1>
+
+<center>
+    <h1>Add New Voucher Form:</h1>
+    <br />
+    <hr />
+    <br />
+    <form method="post" asp-action="AddCustomer" asp-controller="Home">
+        <table border="1"
+            <tr>
+                <th><label asp-for="CustomerName"></label></th>
+                <td>
+                    <input asp-for="CustomerName" />
+                    <span asp-validation-for="CustomerName"></span>
+                </td>
+            </tr>
+            <tr>
+                <th><label asp-for="CustomerEmail"></label></th>
+                <td>
+                    <input asp-for="CustomerEmail" />
+                    <span asp-validation-for="CustomerEmail"></span>
+                </td>
+            </tr>
+            <tr>
+                <th><label asp-for="CustomerPassword"></label></th>
+                <td>
+                    <input asp-for="CustomerPassword" />
+                    <span asp-validation-for="CustomerPassword"></span>
+                </td>
+            </tr>
+            <tr>
+                <th><label asp-for="CustomerPhone"></label></th>
+                <td>
+                    <input asp-for="CustomerPhone" />
+                    <span asp-validation-for="CustomerPhone"></span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align:center">
+                    <button class="btn-outline-info">Add New Voucher</button>
+                </td>
+            </tr>
+    </form>
+</center>

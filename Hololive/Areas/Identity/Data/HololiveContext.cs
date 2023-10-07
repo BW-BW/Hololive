@@ -12,6 +12,13 @@ public class HololiveContext : IdentityDbContext<HololiveUser>
     {
     }
 
+    public DbSet<Hololive.Models.Voucher> Voucher { get; set; }
+
+    public DbSet<Hololive.Models.Customer> Customer { get; set; }
+
+    public DbSet<Hololive.Models.Transaction> Transaction { get; set; }
+
+
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);

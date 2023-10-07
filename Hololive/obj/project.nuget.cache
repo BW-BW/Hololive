@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "BgLkqnk1nl3MTYmrMT4tQdIBjgbobvqovd82k7BpULWG/hKHrB2+URKGOc+FmxHoCXWuJlGi9K2/9Ox+pzXtZw==",
+  "dgSpecHash": "kMiwF01RBClCriCqk9tl6+VgHGBIdcY7B1e8F6ylZQxBmDKbOYIxACdi5Qjv0EWqQYrxJ86TFsthBIx8ktzf/Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\Brian\\GithubRepo\\Hololive\\Hololive\\Hololive.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Brian\\.nuget\\packages\\awssdk.core\\3.7.204\\awssdk.core.3.7.204.nupkg.sha512",
+    "C:\\Users\\Brian\\.nuget\\packages\\awssdk.s3\\3.7.205.9\\awssdk.s3.3.7.205.9.nupkg.sha512",
     "C:\\Users\\Brian\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\Brian\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
     "C:\\Users\\Brian\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",

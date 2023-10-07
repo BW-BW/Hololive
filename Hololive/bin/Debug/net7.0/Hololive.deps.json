@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v7.0": {
       "Hololive/1.0.0": {
         "dependencies": {
+          "AWSSDK.S3": "3.7.205.9",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "7.0.11",
           "Microsoft.AspNetCore.Identity.UI": "7.0.11",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.11",
@@ -16,6 +17,25 @@
         },
         "runtime": {
           "Hololive.dll": {}
+        }
+      },
+      "AWSSDK.Core/3.7.204": {
+        "runtime": {
+          "lib/netcoreapp3.1/AWSSDK.Core.dll": {
+            "assemblyVersion": "3.3.0.0",
+            "fileVersion": "3.7.204.0"
+          }
+        }
+      },
+      "AWSSDK.S3/3.7.205.9": {
+        "dependencies": {
+          "AWSSDK.Core": "3.7.204"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/AWSSDK.S3.dll": {
+            "assemblyVersion": "3.3.0.0",
+            "fileVersion": "3.7.205.9"
+          }
         }
       },
       "Azure.Core/1.25.0": {
@@ -2593,6 +2613,20 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "AWSSDK.Core/3.7.204": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-lr9Ttgl7sP+8JKlAXsusDfVXOGWRGB7y14tN7zUuRP1IeXacIogFxOsfDTbecuvut/LnwYOj8J3s0h7R+oHiDw==",
+      "path": "awssdk.core/3.7.204",
+      "hashPath": "awssdk.core.3.7.204.nupkg.sha512"
+    },
+    "AWSSDK.S3/3.7.205.9": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-18hUBBlQSyMbEXqxCcvKRZaeC5K4Wx80r+2IsvUUocNQ8/qJRU8nMMinh/+LHxVZVy+de4xSJHY16n4QciIdfA==",
+      "path": "awssdk.s3/3.7.205.9",
+      "hashPath": "awssdk.s3.3.7.205.9.nupkg.sha512"
     },
     "Azure.Core/1.25.0": {
       "type": "package",

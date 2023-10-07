@@ -1,7 +1,47 @@
-﻿
+﻿@model List<Voucher>
 @{
     ViewData["Title"] = "AdminHome";
 }
 
 <h1>AdminHome</h1>
 
+<a asp-action="AddNewVoucher" asp-controller="Admin">Add New Voucher</a>
+<br />
+@*<table border="1">
+    <tr style="background-color:yellow">
+        <th>Flower ID</th>
+        <th>Flower Name</th>
+        <th>Flower Type</th>
+        <th>Flower Price</th>
+        <th>Flower Purchased Date</th>
+        <th>Flower Purchased Date delete</th>
+    </tr>
+    @foreach (var singlevoucher in Model)
+    {
+        <tr>
+            <td>@singlevoucher.VoucherID</td>
+            <td>@singlevoucher.VoucherName</td>
+            <td>@singlevoucher.VoucherValue</td>
+            <td>@singlevoucher.VoucherPrice</td>
+            
+            <td><img src="@singlevoucher.VoucherLink" width="200px" height="200px" /></td>
+            <td><button class="btn-info" asp-action="deleteVoucher" asp-controller="Admin" asp-route-fid="@singlevoucher.VoucherID">Delete</button><td>
+            
+        </tr>
+    }
+</table>*@
+
+<div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
+
+    @foreach (var singlevoucher in Model)
+    {
+        <div style="border: 1px solid #ddd; padding: 10px; margin: 10px; text-align: center; width: 200px;">
+            <img src="@singlevoucher.VoucherLink" width="150px" height="150px" />
+            <h4>@singlevoucher.VoucherName</h4>
+            <p>Type: @singlevoucher.VoucherValue</p>
+            <p>Price: @singlevoucher.VoucherPrice</p>
+            <form method="post"><button class="btn-info" asp-action="deleteVoucher" asp-controller="Admin" asp-route-VoucherID="@singlevoucher.VoucherID">Delete</button></form>
+        </div>
+    }
+
+</div>

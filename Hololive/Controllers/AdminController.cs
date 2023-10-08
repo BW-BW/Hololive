@@ -10,11 +10,18 @@ using Microsoft.Extensions.Configuration; //appsettings.json section
 using System.IO; // input output
 using Microsoft.AspNetCore.Http;
 
+using Amazon.SimpleNotificationService;
+using Amazon.SimpleNotificationService.Model;
+using Microsoft.Extensions.Configuration;
+using System.IO;
+
 namespace Hololive.Controllers
 {
     public class AdminController : Controller
     {
         private const string s3BucketName = "testtest12091";
+
+        private const string topicARN = "arn:aws:sns:us-east-1:576578684530:HololiveAnnouncement";
 
         private readonly HololiveContext _context;
 
@@ -44,6 +51,30 @@ namespace Hololive.Controllers
             keys.Add(configure["Values:key3"]);
 
             return keys;
+        }
+
+        //function for admin to broadcast
+        public async Task<IActionResult> processBroadcast()
+        {
+            //start connection
+            List<string> values = getKeys();
+            AmazonSimpleNotificationServiceClient agent = new AmazonSimpleNotificationServiceClient(values[0], values[1], values[2], RegionEndpoint.USEast1);
+
+            try
+            {
+                PublishRequest request = new PublishRequest
+                {
+                    TopicArn = topicARN,
+                    Subject = "Hololive New Product",
+                    Message = "Hey there, our platform just release a new type of voucher, come check it out on our website"
+                };
+                await agent.PublishAsync(request);
+                return RedirectToAction("Index", "Admin");
+            }
+            catch (AmazonSimpleNotificationServiceException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         //add voucher to S3 and RDS
@@ -86,9 +117,12 @@ namespace Hololive.Controllers
                 //voucher.VoucherLink = "asdasd";
                 _context.Voucher.Add(voucher);
                 await _context.SaveChangesAsync();
+                
+                //send out SNS
+                await processBroadcast();
+
                 return RedirectToAction("Index", "Admin");
             }
-
             return View("Index", voucher);
 
         }

@@ -1,0 +1,16 @@
+﻿@model Voucher
+@{
+    ViewData["Title"] = "NewProduct";
+}
+
+<h1 style="text-align: center; margin-top: 25px ; margin-bottom: 35px">Check Out Our Latest Product</h1>
+
+<div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
+    <div style="border: 1px solid #ddd; padding: 10px; margin: 10px; text-align: center; width: 450px;">
+        <img src="@Model.VoucherLink" width="400px" height="400px" />
+        <h4>@Model.VoucherName</h4>
+        <p>Type: @Model.VoucherValue</p>
+        <p>Price: @Model.VoucherPrice</p>
+        <form method="post"><button class="btn-info" asp-action="Index" asp-controller="Home">Buy Now</button></form>
+    </div>
+</div>

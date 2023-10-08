@@ -9,6 +9,7 @@
       "Hololive/1.0.0": {
         "dependencies": {
           "AWSSDK.S3": "3.7.205.9",
+          "AWSSDK.SimpleNotificationService": "3.7.200.53",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "7.0.11",
           "Microsoft.AspNetCore.Identity.UI": "7.0.11",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.11",
@@ -35,6 +36,17 @@
           "lib/netcoreapp3.1/AWSSDK.S3.dll": {
             "assemblyVersion": "3.3.0.0",
             "fileVersion": "3.7.205.9"
+          }
+        }
+      },
+      "AWSSDK.SimpleNotificationService/3.7.200.53": {
+        "dependencies": {
+          "AWSSDK.Core": "3.7.204"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/AWSSDK.SimpleNotificationService.dll": {
+            "assemblyVersion": "3.3.0.0",
+            "fileVersion": "3.7.200.53"
           }
         }
       },
@@ -2627,6 +2639,13 @@
       "sha512": "sha512-18hUBBlQSyMbEXqxCcvKRZaeC5K4Wx80r+2IsvUUocNQ8/qJRU8nMMinh/+LHxVZVy+de4xSJHY16n4QciIdfA==",
       "path": "awssdk.s3/3.7.205.9",
       "hashPath": "awssdk.s3.3.7.205.9.nupkg.sha512"
+    },
+    "AWSSDK.SimpleNotificationService/3.7.200.53": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-HFcSH0fKqu6ChAJgPKL+DB8KYqKEfS9AiK5AFVgM2r7eWt5eP0tIz4Vbp8PKtF9g0/qm0U2R0szff0Qb5S3lKw==",
+      "path": "awssdk.simplenotificationservice/3.7.200.53",
+      "hashPath": "awssdk.simplenotificationservice.3.7.200.53.nupkg.sha512"
     },
     "Azure.Core/1.25.0": {
       "type": "package",

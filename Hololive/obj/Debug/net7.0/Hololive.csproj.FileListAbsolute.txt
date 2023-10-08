@@ -263,3 +263,4 @@ C:\Users\Brian\GithubRepo\Hololive\Hololive\obj\Debug\net7.0\Hololive.MvcApplica
 C:\Users\Brian\GithubRepo\Hololive\Hololive\bin\Debug\net7.0\aws-beanstalk-tools-defaults.json
 C:\Users\Brian\GithubRepo\Hololive\Hololive\bin\Debug\net7.0\AWSSDK.Core.dll
 C:\Users\Brian\GithubRepo\Hololive\Hololive\bin\Debug\net7.0\AWSSDK.S3.dll
+C:\Users\Brian\GithubRepo\Hololive\Hololive\bin\Debug\net7.0\AWSSDK.SimpleNotificationService.dll

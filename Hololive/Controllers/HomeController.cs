@@ -7,6 +7,12 @@ using Amazon.S3.Model;
 using Amazon.S3;
 using System.Text;
 
+using Amazon;
+using Amazon.SimpleNotificationService;
+using Amazon.SimpleNotificationService.Model;
+using Microsoft.Extensions.Configuration;
+using System.IO;
+
 namespace Hololive.Controllers
 {
     public class HomeController : Controller
@@ -14,14 +20,29 @@ namespace Hololive.Controllers
 
         private readonly HololiveContext _context;
 
+        private const string topicARN = "arn:aws:sns:us-east-1:576578684530:HololiveAnnouncement";
+
         public HomeController(HololiveContext context)
         {
             _context = context;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            //return View();
+            int? customerIDFlag = HttpContext.Session.GetInt32("CustomerID");
+
+            if (customerIDFlag.HasValue)
+            {
+                List<Voucher> voucherList = await _context.Voucher.ToListAsync();
+
+                //return View();
+                return View("Login", voucherList);
+            }
+            else
+            {
+                return View();
+            }
         }
 
         public IActionResult Privacy()
@@ -32,6 +53,17 @@ namespace Hololive.Controllers
         public IActionResult Register()
         {
             return View();
+        }
+
+        public IActionResult AboutUs()
+        {
+            return View();
+        }
+
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Remove("CustomerID");
+            return RedirectToAction("Index", "Home");
         }
 
         public async Task<IActionResult> Login(string email, string password)
@@ -66,10 +98,57 @@ namespace Hololive.Controllers
             {
                 _context.Customer.Add(customer);
                 await _context.SaveChangesAsync();
+
+                //subscribe SNS topic
+                await processSubscribtion(customer.CustomerEmail);
+
                 return RedirectToAction("Index", "Home");
             }
 
             return View("Register", customer);
+        }
+
+        //get AWS keys from appsettings.json
+        private List<string> getKeys()
+        {
+            List<string> keys = new List<string>();
+
+            var builder = new ConfigurationBuilder()
+                            .SetBasePath(Directory.GetCurrentDirectory())
+                            .AddJsonFile("appsettings.json");
+            IConfiguration configure = builder.Build(); //build the json file
+
+            //2. read the info from json using configure instance
+            keys.Add(configure["Values:key1"]);
+            keys.Add(configure["Values:key2"]);
+            keys.Add(configure["Values:key3"]);
+
+            return keys;
+        }
+
+        //process the subscription in SNS topic
+        public async Task<IActionResult> processSubscribtion(string email)
+        {
+            //start connection
+            List<string> values = getKeys();
+            AmazonSimpleNotificationServiceClient agent = new AmazonSimpleNotificationServiceClient(values[0], values[1], values[2], RegionEndpoint.USEast1);
+
+            try
+            {
+                SubscribeRequest request = new SubscribeRequest
+                {
+                    TopicArn = topicARN,
+                    Protocol = "Email",
+                    Endpoint = email
+                };
+                SubscribeResponse response = await agent.SubscribeAsync(request);
+                //ViewBag.subscribtionSuccessID = response.ResponseMetadata.RequestId;
+                return View("Index", "Home");
+            }
+            catch (AmazonSimpleNotificationServiceException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         //buy function
@@ -133,17 +212,27 @@ namespace Hololive.Controllers
             return randomStringBuilder.ToString();
         }
 
-        //hisotry function
-        /*public async Task<IActionResult> History()
+        //profile function
+        public async Task<IActionResult> Profile()
         {
-            List<Transactions> trans = await _context.Transactions.ToListAsync();
-
-            //filter before display
             int? customerID = HttpContext.Session.GetInt32("CustomerID");
-            trans = trans.Where(s => s.CustomerID == customerID.Value).ToList();
 
-            return View(trans);
-        }*/
+            Customer customers = await _context.Customer
+                .FirstOrDefaultAsync(s => s.CustomerID == customerID.Value);
+
+            return View(customers);
+        }
+
+        public async Task<IActionResult> NewProduct()
+        {
+            int maxTransactionID = await _context.Voucher
+                            .MaxAsync(s => (int?)s.VoucherID) ?? 0;
+
+            Voucher voucher = await _context.Voucher
+                .FirstOrDefaultAsync(s => s.VoucherID == maxTransactionID);
+
+            return View(voucher);
+        }
 
         public async Task<IActionResult> History()
         {

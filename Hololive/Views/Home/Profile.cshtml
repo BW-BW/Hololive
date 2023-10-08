@@ -1,0 +1,15 @@
+﻿@model Customer
+@{
+    ViewData["Title"] = "Profile";
+}
+
+<h1>Profile</h1>
+
+<p>@Model.CustomerID</p>
+<p>@Model.CustomerName</p>
+<p>@Model.CustomerEmail</p>
+<p>@Model.CustomerPhone</p>
+
+<form method="post">
+    <button class="btn-info" asp-action="Logout" asp-controller="Home">Logout</button>
+</form>

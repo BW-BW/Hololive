@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Hololive.Data;
 using Hololive.Areas.Identity.Data;
+using Amazon.XRay.Recorder.Handlers.AwsSdk;
+
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("HololiveContextConnection") ?? throw new InvalidOperationException("Connection string 'HololiveContextConnection' not found.");
 
@@ -14,6 +16,8 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 builder.Services.AddSession();
 
+AWSSDKHandler.RegisterXRayForAllServices();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -24,6 +28,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+app.UseXRay("Hololive Voucher Shop");
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 

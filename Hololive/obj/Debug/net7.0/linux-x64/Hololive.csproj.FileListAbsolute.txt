@@ -558,3 +558,11 @@ C:\Users\Brian\GithubRepo\Hololive\Hololive\obj\Debug\net7.0\linux-x64\refint\Ho
 C:\Users\Brian\GithubRepo\Hololive\Hololive\obj\Debug\net7.0\linux-x64\Hololive.pdb
 C:\Users\Brian\GithubRepo\Hololive\Hololive\obj\Debug\net7.0\linux-x64\Hololive.genruntimeconfig.cache
 C:\Users\Brian\GithubRepo\Hololive\Hololive\obj\Debug\net7.0\linux-x64\ref\Hololive.dll
+C:\Users\Brian\GithubRepo\Hololive\Hololive\bin\Debug\net7.0\linux-x64\aws-beanstalk-tools-defaults.json
+C:\Users\Brian\GithubRepo\Hololive\Hololive\bin\Debug\net7.0\linux-x64\Amazon.Lambda.SQSEvents.dll
+C:\Users\Brian\GithubRepo\Hololive\Hololive\bin\Debug\net7.0\linux-x64\AWSSDK.Core.dll
+C:\Users\Brian\GithubRepo\Hololive\Hololive\bin\Debug\net7.0\linux-x64\AWSSDK.S3.dll
+C:\Users\Brian\GithubRepo\Hololive\Hololive\bin\Debug\net7.0\linux-x64\AWSSDK.SimpleNotificationService.dll
+C:\Users\Brian\GithubRepo\Hololive\Hololive\bin\Debug\net7.0\linux-x64\AWSXRayRecorder.Core.dll
+C:\Users\Brian\GithubRepo\Hololive\Hololive\bin\Debug\net7.0\linux-x64\AWSXRayRecorder.Handlers.AspNetCore.dll
+C:\Users\Brian\GithubRepo\Hololive\Hololive\bin\Debug\net7.0\linux-x64\AWSXRayRecorder.Handlers.AwsSdk.dll

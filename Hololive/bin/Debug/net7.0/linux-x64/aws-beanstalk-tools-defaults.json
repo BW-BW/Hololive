@@ -1,0 +1,20 @@
+
+{
+    "region" : "us-east-1",
+    "configuration" : "Debug",
+    "framework"     : "net7.0",
+    "self-contained" : true,
+    "application"    : "Hololive",
+    "environment"    : "Hololive-test",
+    "enable-xray"    : true,
+    "enhanced-health-type" : "enhanced",
+    "additional-options"   : "\"aws:autoscaling:launchconfiguration,SecurityGroups\"=\"sg-0bda8637ce4889605,sg-0d0f6c10971f42413\";\"aws:ec2:vpc,Subnets\"=\"subnet-0c9fb13b8493f9c6a\"",
+    "solution-stack"       : "64bit Amazon Linux 2 v2.6.0 running .NET Core",
+    "environment-type"     : "SingleInstance",
+    "cname"                : "hololive-test",
+    "instance-type"        : "t2.micro",
+    "key-pair"             : "Pantek",
+    "instance-profile"     : "LabInstanceProfile",
+    "service-role"         : "LabRole",
+    "proxy-server"         : "nginx"
+}

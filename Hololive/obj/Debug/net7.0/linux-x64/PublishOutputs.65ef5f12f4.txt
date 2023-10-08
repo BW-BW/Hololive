@@ -1,6 +1,7 @@
 C:\Users\Brian\GithubRepo\Hololive\Hololive\bin\Debug\net7.0\publish\Hololive
 C:\Users\Brian\GithubRepo\Hololive\Hololive\bin\Debug\net7.0\publish\appsettings.Development.json
 C:\Users\Brian\GithubRepo\Hololive\Hololive\bin\Debug\net7.0\publish\appsettings.json
+C:\Users\Brian\GithubRepo\Hololive\Hololive\bin\Debug\net7.0\publish\aws-beanstalk-tools-defaults.json
 C:\Users\Brian\GithubRepo\Hololive\Hololive\bin\Debug\net7.0\publish\Hololive.dll
 C:\Users\Brian\GithubRepo\Hololive\Hololive\bin\Debug\net7.0\publish\Hololive.runtimeconfig.json
 C:\Users\Brian\GithubRepo\Hololive\Hololive\bin\Debug\net7.0\publish\Hololive.pdb
@@ -315,6 +316,13 @@ C:\Users\Brian\GithubRepo\Hololive\Hololive\bin\Debug\net7.0\publish\libhostfxr.
 C:\Users\Brian\GithubRepo\Hololive\Hololive\bin\Debug\net7.0\publish\libhostpolicy.so
 C:\Users\Brian\GithubRepo\Hololive\Hololive\bin\Debug\net7.0\publish\libmscordaccore.so
 C:\Users\Brian\GithubRepo\Hololive\Hololive\bin\Debug\net7.0\publish\libmscordbi.so
+C:\Users\Brian\GithubRepo\Hololive\Hololive\bin\Debug\net7.0\publish\Amazon.Lambda.SQSEvents.dll
+C:\Users\Brian\GithubRepo\Hololive\Hololive\bin\Debug\net7.0\publish\AWSSDK.Core.dll
+C:\Users\Brian\GithubRepo\Hololive\Hololive\bin\Debug\net7.0\publish\AWSSDK.S3.dll
+C:\Users\Brian\GithubRepo\Hololive\Hololive\bin\Debug\net7.0\publish\AWSSDK.SimpleNotificationService.dll
+C:\Users\Brian\GithubRepo\Hololive\Hololive\bin\Debug\net7.0\publish\AWSXRayRecorder.Core.dll
+C:\Users\Brian\GithubRepo\Hololive\Hololive\bin\Debug\net7.0\publish\AWSXRayRecorder.Handlers.AspNetCore.dll
+C:\Users\Brian\GithubRepo\Hololive\Hololive\bin\Debug\net7.0\publish\AWSXRayRecorder.Handlers.AwsSdk.dll
 C:\Users\Brian\GithubRepo\Hololive\Hololive\bin\Debug\net7.0\publish\Azure.Core.dll
 C:\Users\Brian\GithubRepo\Hololive\Hololive\bin\Debug\net7.0\publish\Azure.Identity.dll
 C:\Users\Brian\GithubRepo\Hololive\Hololive\bin\Debug\net7.0\publish\Humanizer.dll

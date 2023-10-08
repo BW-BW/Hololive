@@ -66,7 +66,7 @@ namespace Hololive.Controllers
                 {
                     TopicArn = topicARN,
                     Subject = "Hololive New Product",
-                    Message = "Hey there, our platform just release a new type of voucher, come check it out on our website"
+                    Message = "Hey there, our platform just release a new type of voucher, come check it out on our website http://hololive-test.us-east-1.elasticbeanstalk.com/"
                 };
                 await agent.PublishAsync(request);
                 return RedirectToAction("Index", "Admin");

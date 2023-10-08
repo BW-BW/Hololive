@@ -1,0 +1,36 @@
+﻿@model List<HistoryView>
+
+@{
+    ViewData["Title"] = "SalesInfo";
+    int? saleCount = ViewData["SalesCount"] as int?;
+}
+
+<h1>SalesInfo = @saleCount</h1>
+
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>Transaction ID</th>
+            <th>Customer ID</th>
+            <th>Customer Name</th>
+            <th>Voucher ID</th>
+            <th>Voucher Name</th>
+            <th>Voucher Value</th>
+            <th>Voucher Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var transaction in Model)
+        {
+            <tr>
+                <td>@transaction.TransactionID</td>
+                <td>@transaction.CustomerID</td>
+                <td>@transaction.CustomerName</td>
+                <td>@transaction.VoucherID</td>
+                <td>@transaction.VoucherName</td>
+                <td>@transaction.VoucherValue</td>
+                <td>@transaction.VoucherPrice</td>
+            </tr>
+        }
+    </tbody>
+</table>

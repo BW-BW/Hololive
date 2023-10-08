@@ -7,29 +7,9 @@
 
 <a asp-action="AddNewVoucher" asp-controller="Admin">Add New Voucher</a>
 <br />
-@*<table border="1">
-    <tr style="background-color:yellow">
-        <th>Flower ID</th>
-        <th>Flower Name</th>
-        <th>Flower Type</th>
-        <th>Flower Price</th>
-        <th>Flower Purchased Date</th>
-        <th>Flower Purchased Date delete</th>
-    </tr>
-    @foreach (var singlevoucher in Model)
-    {
-        <tr>
-            <td>@singlevoucher.VoucherID</td>
-            <td>@singlevoucher.VoucherName</td>
-            <td>@singlevoucher.VoucherValue</td>
-            <td>@singlevoucher.VoucherPrice</td>
-            
-            <td><img src="@singlevoucher.VoucherLink" width="200px" height="200px" /></td>
-            <td><button class="btn-info" asp-action="deleteVoucher" asp-controller="Admin" asp-route-fid="@singlevoucher.VoucherID">Delete</button><td>
-            
-        </tr>
-    }
-</table>*@
+<a asp-action="SalesInfo" asp-controller="Admin">Sales Information</a>
+<br />
+
 
 <div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
 

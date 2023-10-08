@@ -143,7 +143,7 @@ namespace Hololive.Controllers
                 // Successful login
                 List<Voucher> voucherList = await _context.Voucher.ToListAsync();
 
-                return View(voucherList); ; // Redirect to AdminHome action
+                return View(voucherList);// Redirect to AdminHome action
             }
             else
             {
@@ -152,6 +152,36 @@ namespace Hololive.Controllers
                 return View("Index"); // Replace "YourLoginView" with your actual login view name
             }
             //return View();
+        }
+
+        public async Task<IActionResult> SalesInfo()
+        {
+            List<HistoryView> transactions = await _context.Transactions
+                .Join(
+                    _context.Voucher,
+                    transaction => transaction.VoucherID,
+                    voucher => voucher.VoucherID,
+                    (transaction, voucher) => new { transaction, voucher })
+                .Join(
+                    _context.Customer,
+                    joined => joined.transaction.CustomerID,
+                    customer => customer.CustomerID,
+                    (joined, customer) => new HistoryView
+                    {
+                        TransactionID = joined.transaction.TransactionID,
+                        CustomerID = joined.transaction.CustomerID,
+                        VoucherID = joined.transaction.VoucherID,
+                        GiftcardCode = joined.transaction.GiftcardCode,
+                        VoucherName = joined.voucher.VoucherName,
+                        VoucherValue = joined.voucher.VoucherValue,
+                        VoucherPrice = joined.voucher.VoucherPrice,
+                        CustomerName = customer.CustomerName
+                    })
+                .ToListAsync();
+
+            ViewData["SalesCount"] = transactions.Count;
+
+            return View(transactions);
         }
     }
 }

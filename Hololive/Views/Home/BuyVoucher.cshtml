@@ -1,0 +1,22 @@
+﻿@model Transactions
+@{
+    ViewData["Title"] = "BuyVoucher";
+}
+
+<h1>BuyVoucher</h1>
+
+<table border="1">
+    <tr style="background-color:yellow">
+        <th>trans ID</th>
+        <th>Customer id</th>
+        <th>Customer Email</th>
+        <th>Customer Password</th>
+    </tr>
+
+    <tr>
+        <td>@Model.TransactionID</td>
+        <td>@Model.CustomerID</td>
+        <td>@Model.GiftcardCode</td>
+        <td>@Model.VoucherID</td>
+    </tr>
+</table>

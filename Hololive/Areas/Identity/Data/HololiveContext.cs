@@ -16,7 +16,9 @@ public class HololiveContext : IdentityDbContext<HololiveUser>
 
     public DbSet<Hololive.Models.Customer> Customer { get; set; }
 
-    public DbSet<Hololive.Models.Transaction> Transaction { get; set; }
+    public DbSet<Hololive.Models.Transactions> Transactions { get; set; }
+
+    public DbSet<Hololive.Models.HistoryView> HisotryView { get; set; }
 
 
     protected override void OnModelCreating(ModelBuilder builder)

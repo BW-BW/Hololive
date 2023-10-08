@@ -1,26 +1,37 @@
-﻿@model List<Customer>
+﻿@model List<Voucher>
 @{
     ViewData["Title"] = "Login";
 }
 
 <h1>Logged In</h1>
 
-<table border="1">
-    <tr style="background-color:yellow">
-        <th>Customer ID</th>
-        <th>Customer Name</th>
-        <th>Customer Email</th>
-        <th>Customer Password</th>
-        <th>Customer Phone Number</th>
-    </tr>
-    @foreach (var singlevoucher in Model)
-    {
-        <tr>
-            <td>@singlevoucher.CustomerID</td>
-            <td>@singlevoucher.CustomerName</td>
-            <td>@singlevoucher.CustomerEmail</td>
-            <td>@singlevoucher.CustomerPassword</td>
-            <td>@singlevoucher.CustomerPhone</td>
-        </tr>
-    }
-</table>
+<a asp-action="History" asp-controller="Home">History</a>
+<br />
+<hr />
+<br />
+
+<style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: beige; /* Set the background color for the entire page */
+        }
+</style>
+
+<body>
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
+
+        @foreach (var singlevoucher in Model)
+        {
+            <div style="border: 1px solid #ddd; padding: 10px; margin: 10px; text-align: center; width: 200px;">
+                <img src="@singlevoucher.VoucherLink" width="150px" height="150px" />
+                <h4>@singlevoucher.VoucherName</h4>
+                <p>Type: @singlevoucher.VoucherValue</p>
+                <p>Price: @singlevoucher.VoucherPrice</p>
+                <form method="post"><button class="btn-info" asp-action="buyVoucher" asp-controller="Home" asp-route-VoucherID="@singlevoucher.VoucherID">Buy</button></form>
+            </div>
+        }
+
+    </div>
+</body>

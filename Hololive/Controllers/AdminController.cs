@@ -19,7 +19,7 @@ namespace Hololive.Controllers
 {
     public class AdminController : Controller
     {
-        private const string s3BucketName = "testtest12091";
+        private const string s3BucketName = "hololive-s3-bucket";
 
         private const string topicARN = "arn:aws:sns:us-east-1:576578684530:HololiveAnnouncement";
 
@@ -30,9 +30,22 @@ namespace Hololive.Controllers
             _context = context;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            //return View();
+            int? adminIDFlag = HttpContext.Session.GetInt32("AdminID");
+
+            if (adminIDFlag.HasValue)
+            {
+                List<Voucher> voucherList = await _context.Voucher.ToListAsync();
+
+                //return View();
+                return View("AdminHome", voucherList);
+            }
+            else
+            {
+                return View();
+            }
         }
 
         //get AWS keys from appsettings.json
@@ -66,7 +79,7 @@ namespace Hololive.Controllers
                 {
                     TopicArn = topicARN,
                     Subject = "Hololive New Product",
-                    Message = "Hey there, our platform just release a new type of voucher, come check it out on our website http://hololive-test.us-east-1.elasticbeanstalk.com/"
+                    Message = "Hey there, our platform just release a new type of voucher, come check it out on our website http://hololive-test.us-east-1.elasticbeanstalk.com/Home/NewProduct"
                 };
                 await agent.PublishAsync(request);
                 return RedirectToAction("Index", "Admin");
@@ -172,10 +185,12 @@ namespace Hololive.Controllers
         //login function + show all listing
         public async Task<IActionResult> AdminHome(string username, string password)
         {
-            if (username == "luffy@gmail.com" && password == "Rumah123!")
+            if (username == "admin" && password == "admin")
             {
                 // Successful login
                 List<Voucher> voucherList = await _context.Voucher.ToListAsync();
+                
+                HttpContext.Session.SetInt32("AdminID", 1);
 
                 return View(voucherList);// Redirect to AdminHome action
             }

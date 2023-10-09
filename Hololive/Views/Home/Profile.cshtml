@@ -3,7 +3,7 @@
     ViewData["Title"] = "Profile";
 }
 
-<h1>Profile</h1>
+@*<h1>Profile</h1>
 
 <p>@Model.CustomerID</p>
 <p>@Model.CustomerName</p>
@@ -12,4 +12,81 @@
 
 <form method="post">
     <button class="btn-info" asp-action="Logout" asp-controller="Home">Logout</button>
-</form>
+</form>*@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: beige;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        section {
+            background-color: white;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 400px;
+            margin: 20px auto;
+        }
+
+        p {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+        }
+
+        button {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+            button:hover {
+                background-color: #218838;
+            }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Profile</h1>
+    </header>
+
+    <section>
+        <p><strong>ID:</strong> @Model.CustomerID</p>
+        <p><strong>Name:</strong> @Model.CustomerName</p>
+        <p><strong>Email:</strong> @Model.CustomerEmail</p>
+        <p><strong>Phone:</strong> @Model.CustomerPhone</p>
+
+        <form method="post">
+            <button asp-action="Logout" asp-controller="Home">Logout</button>
+        </form>
+    </section>
+    <form method="post">
+        <button asp-action="Index" asp-controller="Home">Back to Home</button>
+    </form>
+</body>
+
+</html>

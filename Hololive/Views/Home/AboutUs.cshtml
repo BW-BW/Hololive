@@ -3,5 +3,78 @@
     ViewData["Title"] = "AboutUs";
 }
 
-<h1>Welcome to Hololive Production, where the world of virtual entertainment meets the joy of gifting! At Hololive, we specialize in providing a unique and immersive experience through our virtual talents while offering the perfect solution for those special occasions with our gift cards.</h1>
+@*<h1>Welcome to Hololive Production, where the world of virtual entertainment meets the joy of gifting! At Hololive, we specialize in providing a unique and immersive experience through our virtual talents while offering the perfect solution for those special occasions with our gift cards.</h1>
+*@
 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Hololive Production</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: beige;
+            margin: 0;
+            padding: 0;
+            color: #343a40;
+            text-align: center;
+        }
+
+        h1 {
+            margin-top: 200px;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        button {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+            button:hover {
+                background-color: #218838;
+            }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Welcome to Hololive Production</h1>
+    </header>
+
+    <main>
+        <section>
+            <p>Where the world of virtual entertainment meets the joy of gifting! At Hololive, we specialize in providing a unique and immersive experience through our virtual talents while offering the perfect solution for those special occasions with our gift cards.</p>
+        </section>
+
+        <p>&copy; 2023 Hololive Production. All rights reserved.</p>
+
+        <section>
+            <form method="post">
+                <button asp-action="Index" asp-controller="Home">Explore Now</button>
+            </form>
+        </section>
+        
+    </main>
+        
+</body>
+
+</html>

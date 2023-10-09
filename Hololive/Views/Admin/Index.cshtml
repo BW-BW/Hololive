@@ -8,12 +8,12 @@
     <meta charset="utf-8" />
     <title>Login Page</title>
     <style>
-        /*body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            text-align: center;
-            margin: 100px;
-        }*/
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: beige; /* Set the background color for the entire page */
+        }
 
         .login-container {
             width: 300px;
@@ -47,7 +47,7 @@
 <body>
 
     <div class="login-container">
-        <h2>Login</h2>
+        <h2>Admin Login</h2>
         <form method="post" asp-action="AdminHome" asp-controller="Admin">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required />

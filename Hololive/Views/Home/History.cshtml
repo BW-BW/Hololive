@@ -4,35 +4,74 @@
     ViewData["Title"] = "Transaction History";
 }
 
-<div class="container mt-4">
-    <div class="card">
-        <div class="card-header bg-success text-white">
-            <h3 class="mb-0">Transaction History</h3>
-        </div>
-        <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-bordered table-hover">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th>VoucherName</th>
-                            <th>VoucherValue</th>
-                            <th>VoucherPrice</th>
-                            <th>Gift Card Code</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var transaction in Model)
-                        {
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voucher Sales Report</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: beige; /* Set the background color for the entire page */
+        }
+
+        button {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+            button:hover {
+                background-color: #218838;
+            }
+    </style>
+</head>
+<body>
+    <div class="container mt-4">
+        <div class="card">
+            <div class="card-header bg-success text-white">
+                <h3 class="mb-0">Transaction History</h3>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover">
+                        <thead class="thead-dark">
                             <tr>
-                                <td>@transaction.VoucherName</td>
-                                <td>@transaction.VoucherValue</td>
-                                <td>@transaction.VoucherPrice</td>
-                                <td>@transaction.GiftcardCode</td>
+                                <th>VoucherName</th>
+                                <th>VoucherValue</th>
+                                <th>VoucherPrice</th>
+                                <th>Gift Card Code</th>
                             </tr>
-                        }
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            @foreach (var transaction in Model)
+                            {
+                                <tr>
+                                    <td>@transaction.VoucherName</td>
+                                    <td>@transaction.VoucherValue</td>
+                                    <td>@transaction.VoucherPrice RM</td>
+                                    <td>@transaction.GiftcardCode</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
+        <br />
+        <form method="post" asp-action="Index" asp-controller="Home">
+            <div>
+                <button type="submit">Back to Home</button>
+            </div>
+        </form>
     </div>
-</div>
+</body>

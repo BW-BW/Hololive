@@ -1,22 +1,102 @@
 ﻿@model Transactions
 @{
-    ViewData["Title"] = "BuyVoucher";
+    ViewData["Title"] = "Purchase Receipt";
 }
 
-<h1>BuyVoucher</h1>
+<!DOCTYPE html>
+<html lang="en">
 
-<table border="1">
-    <tr style="background-color:yellow">
-        <th>trans ID</th>
-        <th>Customer id</th>
-        <th>Customer Email</th>
-        <th>Customer Password</th>
-    </tr>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: beige;
+            text-align: center;
+        }
 
-    <tr>
-        <td>@Model.TransactionID</td>
-        <td>@Model.CustomerID</td>
-        <td>@Model.GiftcardCode</td>
-        <td>@Model.VoucherID</td>
-    </tr>
-</table>
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        section {
+            background-color: white;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 400px;
+            margin: 20px auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #28a745;
+            color: white;
+        }
+
+        button {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+            button:hover {
+                background-color: #218838;
+            }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Purchase Receipt</h1>
+    </header>
+
+    <section>
+        <table>
+            <tr>
+                <th>Transaction ID</th>
+                <td>@Model.TransactionID</td>
+            </tr>
+            <tr>
+                <th>Customer ID</th>
+                <td>@Model.CustomerID</td>
+            </tr>
+            <tr>
+                <th>Giftcard Code</th>
+                <td>@Model.GiftcardCode</td>
+            </tr>
+            <tr>
+                <th>Voucher ID</th>
+                <td>@Model.VoucherID</td>
+            </tr>
+        </table>
+        <form method="post">
+            <button asp-action="History" asp-controller="Home">Go to History</button>
+        </form>
+    </section>
+</body>
+
+</html>

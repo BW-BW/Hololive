@@ -4,7 +4,7 @@
     ViewData["Title"] = "Home Page";
 }
 
-<!DOCTYPE html>
+@*<!DOCTYPE html>
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,6 +16,24 @@
             padding: 0;
             background-color: beige; /* Set the background color for the entire page */
         }
+
+        button {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+            button:hover {
+                background-color: #218838;
+            }
 
         .text-container {
             text-align: center;
@@ -34,8 +52,8 @@
 
 <body>
     <div class="text-container">
-        <h1 class="display-4">Welcome</h1>
-        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+        <h1>Welcome to Hololive</h1>
+        <h1>Login to Buy Our Vouchers</h1>
     </div>
 
     <form method="post" asp-action="Login" asp-controller="Home">
@@ -50,10 +68,98 @@
             <span asp-validation-for="CustomerPassword" class="text-danger"></span>
         </div>
         <div>
-            <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary">Log in</button>
+            <button id="login-submit" type="submit">Log in</button>
         </div>
     </form>
-    
-
 </body>
+</html>
+*@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: beige;
+            /* Set the background color for the entire page */
+        }
+
+        .text-container {
+            text-align: center;
+            padding: 2rem;
+        }
+
+            .text-container h1 {
+                color: #007bff;
+            }
+
+            .text-container p {
+                color: #d3d3d3;
+            }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .form-floating {
+            margin-bottom: 15px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+            button:hover {
+                background-color: #218838;
+            }
+    </style>
+</head>
+
+<body>
+    <div class="text-container">
+        <h1>Welcome to Hololive</h1>
+        <h1>Login to Buy Our Vouchers</h1>
+    </div>
+
+    <form method="post" asp-action="Login" asp-controller="Home">
+        <div class="form-floating">
+            <input type="text" id="email" name="email" required class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+            <label asp-for="CustomerEmail" class="form-label">Email</label>
+            <span asp-validation-for="CustomerEmail" class="text-danger"></span>
+        </div>
+        <div class="form-floating">
+            <input type="password" id="password" name="password" required class="form-control" autocomplete="current-password" aria-required="true" placeholder="password" />
+            <label asp-for="CustomerPassword" class="form-label">Password</label>
+            <span asp-validation-for="CustomerPassword" class="text-danger"></span>
+        </div>
+        <div>
+            <button id="login-submit" type="submit">Log in</button>
+        </div>
+    </form>
+</body>
+
 </html>

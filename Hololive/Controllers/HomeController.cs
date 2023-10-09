@@ -31,11 +31,15 @@ namespace Hololive.Controllers
         {
             //return View();
             int? customerIDFlag = HttpContext.Session.GetInt32("CustomerID");
+            string? customerNameFlasg = HttpContext.Session.GetString("CustomerName");
+
+            //logout for admin
+            HttpContext.Session.Remove("AdminID");
 
             if (customerIDFlag.HasValue)
             {
                 List<Voucher> voucherList = await _context.Voucher.ToListAsync();
-
+                ViewData["CustomerName"] = customerNameFlasg;
                 //return View();
                 return View("Login", voucherList);
             }
@@ -75,6 +79,8 @@ namespace Hololive.Controllers
             {
                 HttpContext.Session.SetInt32("CustomerID", customers.CustomerID);
                 HttpContext.Session.SetString("CustomerName", customers.CustomerName);
+
+                ViewData["CustomerName"] = customers.CustomerName;
 
                 // Successful login
                 List<Voucher> voucherList = await _context.Voucher.ToListAsync();
